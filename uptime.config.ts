@@ -11,23 +11,11 @@ const pageConfig: PageConfig = {
   // Links shown at the header of your status page
   links: [
     { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
   ],
 }
 
 const workerConfig: WorkerConfig = {
   monitors: [
-    // ===== 测试钉钉用 =====
-    {
-      id: 'bby_forum',
-      name: '北冰洋（测试）',
-      method: 'GET',
-      target: 'https://this-is-a-test-domain-12345.com/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    // ===== 保留 37 个重要监控 =====
     {
       id: 'random_url',
       name: '随机访问网址',
