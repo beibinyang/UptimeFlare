@@ -20,15 +20,14 @@ const workerConfig: WorkerConfig = {
   // Define all your monitors here
   monitors: [
     // ===== 从 god-resources.html 提取的所有链接 =====
-{
-  id: 'bby_forum',
-  name: '北冰洋',
-  method: 'GET',
-  target: 'https://this-is-a-test-domain-12345.com/',  // 改成无效地址
-  timeout: 10000,
-  expectedCodes: [200, 302, 301],
-},
-
+    {
+      id: 'bby_forum',
+      name: '北冰洋',
+      method: 'GET',
+      target: 'https://this-is-a-test-domain-12345.com/',  // 临时改为无效地址测试钉钉
+      timeout: 10000,
+      expectedCodes: [200, 302, 301],
+    },
     {
       id: 'random_url',
       name: '随机访问网址',
@@ -477,45 +476,28 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
-    {
-      id: 'bby_forum',
-      name: '北冰洋',
-      method: 'GET',
-      target: 'https://bby.freeflarum.com/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
+    // bby_forum 已移到最前面用于测试钉钉
   ],
   
-  // ========== 钉钉通知配置（带链接） ==========
+  // ========== 钉钉通知配置 ==========
   notification: {
     webhook: {
-      // 使用您提供的新 Access Token，关键词为 "1"
       url: 'https://oapi.dingtalk.com/robot/send?access_token=c1cde81ed481ada8e8c66192d74a85e2cb97ae54b263e2d144e1832b35c66d13',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      // 使用 JSON 格式发送
       payloadType: 'json',
-      // 钉钉消息格式，内容包含关键词 "1" 和监控链接
       payload: {
         msgtype: 'text',
         text: {
           content: '1\n🔔 UptimeFlare 监控通知\n📌 监控名称: $NAME\n📊 状态: $STATUS\n🔗 监控地址: $URL\n📝 详情: $MSG\n⏰ 时间: $TIME'
         },
-        // 可选：@特定人员
-        // at: {
-        //   atMobiles: ['13800000000'],
-        //   isAtAll: false
-        // }
       },
       timeout: 10000,
     },
-    // 使用北京时间
     timeZone: 'Asia/Shanghai',
-    // 连续失败 5 分钟后才发送通知，避免频繁告警
-    gracePeriod: 0,
+    gracePeriod: 0,  // 临时改为0，立即触发通知
   },
 }
 
@@ -525,8 +507,8 @@ const maintenances: MaintenanceConfig[] = [
     monitors: ['foo_monitor', 'bar_monitor'],
     title: 'Test Maintenance',
     body: 'This is a test maintenance, server software upgrade',
-    start: '2026-08-02T00:00:00+08:00',
-    end: '2026-08-02T17:00:00+08:00',
+    start: '2026-08-02T16:00:00+08:00',
+    end: '2026-08-02T20:00:00+08:00',
     color: 'blue',
   },
 ]
