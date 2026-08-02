@@ -517,7 +517,7 @@ const maintenances: MaintenanceConfig[] = [
     title: 'Test Maintenance',
     body: 'This is a test maintenance, server software upgrade',
     start: '2026-08-02T00:00:00+08:00',
-    end: '2026-08-02T00:00:00+08:00',
+    end: '2026-08-02T17:00:00+08:00',
     color: 'blue',
   },
 ]
