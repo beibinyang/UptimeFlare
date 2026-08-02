@@ -516,8 +516,8 @@ const maintenances: MaintenanceConfig[] = [
     monitors: ['foo_monitor', 'bar_monitor'],
     title: 'Test Maintenance',
     body: 'This is a test maintenance, server software upgrade',
-    start: '2020-01-01T00:00:00+08:00',
-    end: '2050-01-01T00:00:00+08:00',
+    start: '2026-08-02T00:00:00+08:00',
+    end: '2026-08-02T00:00:00+08:00',
     color: 'blue',
   },
 ]
