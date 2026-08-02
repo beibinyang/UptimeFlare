@@ -20,6 +20,15 @@ const workerConfig: WorkerConfig = {
   // Define all your monitors here
   monitors: [
     // ===== 从 god-resources.html 提取的所有链接 =====
+{
+  id: 'bby_forum',
+  name: '北冰洋',
+  method: 'GET',
+  target: 'https://this-is-a-test-domain-12345.com/',  // 改成无效地址
+  timeout: 10000,
+  expectedCodes: [200, 302, 301],
+},
+
     {
       id: 'random_url',
       name: '随机访问网址',
