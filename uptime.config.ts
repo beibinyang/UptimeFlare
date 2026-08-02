@@ -1,25 +1,7 @@
-// This is a simplified example config file for quickstart
-// Some not frequently used features are omitted/commented out here
-// For a full-featured example, please refer to `uptime.config.full.ts`
-
-// Don't edit this line
-import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
-
-const pageConfig: PageConfig = {
-  // Title for your status page
-  title: "BBY's Status Page",
-  // Links shown at the header of your status page, could set `highlight` to `true`
-  links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
-  ],
-}
-
-export default defineConfig({
+export default {
   workerConfig: {
     monitors: [
-      // ===== 原有示例监控（可按需删除）=====
+      // ===== 原有监控项（完全保留）=====
       {
         id: 'foo_monitor',
         name: 'My API Monitor',
@@ -51,17 +33,19 @@ export default defineConfig({
         timeout: 5000,
       },
 
-      // ===== Mizuki 系列 =====
+      // ===== 以下为新增监控项 =====
+
+      // Mizuki 系列
       { id: 'mizuki-main', name: 'Mizuki 主站', method: 'GET', target: 'https://m.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000, statusPageLink: 'https://m.cccccccc.qzz.io/' },
       { id: 'mizuki-docs', name: 'Mizuki 文档', method: 'GET', target: 'https://docs.m.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'mizuki-status', name: 'Mizuki 状态页', method: 'GET', target: 'https://status.m.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
 
-      // ===== FireFly 系列 =====
+      // FireFly 系列
       { id: 'firefly-main', name: 'FireFly 主站', method: 'GET', target: 'https://v.f.cccccccc.qzz.io', expectedCodes: [200], timeout: 10000, statusPageLink: 'https://v.f.cccccccc.qzz.io' },
       { id: 'firefly-docs', name: 'FireFly 文档', method: 'GET', target: 'https://docs.v.f.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'firefly-status', name: 'FireFly 状态页', method: 'GET', target: 'https://status.v.f.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
 
-      // ===== 核心工具服务 =====
+      // 核心工具服务
       { id: 'music', name: 'Music 音乐服务', method: 'GET', target: 'https://music.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'blog', name: 'BLOG 博客', method: 'GET', target: 'https://博客.cccccccc.qzz.io', expectedCodes: [200], timeout: 10000 },
       { id: 'cloudpaste', name: 'CloudPaste 临时文件分享', method: 'GET', target: 'https://临时文件分享.cccccccc.qzz.io', expectedCodes: [200], timeout: 10000 },
@@ -73,13 +57,13 @@ export default defineConfig({
       { id: 'whois', name: 'Whois 查询', method: 'GET', target: 'https://w.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'ip-info', name: 'IP 信息查询', method: 'GET', target: 'https://ip.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
 
-      // ===== AI / API 服务 =====
+      // AI / API 服务
       { id: 'ai-gateway', name: 'AI Gateway', method: 'GET', target: 'https://ai.cccccccc.qzz.io/', expectedCodes: [200], timeout: 15000 },
       { id: 'openai-proxy', name: 'OpenAI Proxy', method: 'GET', target: 'https://oai.cccccccc.qzz.io/', expectedCodes: [200], timeout: 15000 },
       { id: 'claude-proxy', name: 'Claude Proxy', method: 'GET', target: 'https://claude.cccccccc.qzz.io/', expectedCodes: [200], timeout: 15000 },
       { id: 'gemini-proxy', name: 'Gemini Proxy', method: 'GET', target: 'https://gemini.cccccccc.qzz.io/', expectedCodes: [200], timeout: 15000 },
 
-      // ===== 平台与基础设施 =====
+      // 平台与基础设施
       { id: 'nav', name: '导航页', method: 'GET', target: 'https://nav.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'api-main', name: 'API 主接口', method: 'GET', target: 'https://api.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'cdn', name: 'CDN 加速', method: 'GET', target: 'https://cdn.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
@@ -102,7 +86,7 @@ export default defineConfig({
       { id: 'mq-admin', name: 'MQ Admin 消息队列', method: 'GET', target: 'https://mq.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'search', name: 'Search 搜索引擎', method: 'GET', target: 'https://search.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
 
-      // ===== 开发者工具 =====
+      // 开发者工具
       { id: 'translate', name: 'Translate 翻译', method: 'GET', target: 'https://t.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'qr-code', name: 'QR Code 二维码生成', method: 'GET', target: 'https://qr.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
       { id: 'json-tools', name: 'JSON 工具集', method: 'GET', target: 'https://json.cccccccc.qzz.io/', expectedCodes: [200], timeout: 10000 },
@@ -149,4 +133,4 @@ export default defineConfig({
       { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
     ],
   },
-})
+       }
