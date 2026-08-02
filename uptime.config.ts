@@ -21,6 +21,15 @@ const workerConfig: WorkerConfig = {
   monitors: [
     // ===== 从 god-resources.html 提取的所有链接 =====
     {
+{
+  id: 'test_dingtalk', // 你可以专门新建一个用于测试的 monitor
+  name: '钉钉测试',
+  method: 'GET',
+  target: 'https://this-is-a-test-domain-that-will-fail.com/', // 故意写一个错误的地址
+  timeout: 10000,
+  expectedCodes: [200, 302, 301],
+}
+
       id: 'random_url',
       name: '随机访问网址',
       method: 'GET',
