@@ -417,17 +417,8 @@ const workerConfig: WorkerConfig = {
   },
 }
 
-// 维护窗口配置
-const maintenances: MaintenanceConfig[] = [
-  {
-    monitors: ['foo_monitor', 'bar_monitor'],
-    title: 'Test Maintenance',
-    body: 'This is a test maintenance, server software upgrade',
-    start: '2026-08-02T16:00:00+08:00',
-    end: '2026-08-02T20:00:00+08:00',
-    color: 'blue',
-  },
-]
+// 维护窗口配置 - 清空以便测试钉钉
+const maintenances: MaintenanceConfig[] = []
 
 // Don't edit this line
 export { maintenances, pageConfig, workerConfig }
