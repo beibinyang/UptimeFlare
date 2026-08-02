@@ -2,6 +2,9 @@ name = "uptimeflare"
 compatibility_date = "2025-04-02"
 compatibility_flags = [ "nodejs_compat" ]
 
+# 增加子请求限制（免费账户最大50，付费账户可更高）
+limits = { subrequests = 100 }
+
 [[d1_databases]]
 binding = "UPTIMEFLARE_D1"
 database_name = "uptimeflare_d1"
