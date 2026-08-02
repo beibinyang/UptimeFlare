@@ -24,7 +24,7 @@ const workerConfig: WorkerConfig = {
       id: 'bby_forum',
       name: '北冰洋（测试）',
       method: 'GET',
-      target: 'https://this-is-a-test-domain-12345.com/',
+      target: 'https://bby.freeflarum.com/',
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
