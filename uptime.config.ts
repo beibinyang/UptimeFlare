@@ -1,23 +1,4 @@
-// This is a simplified example config file for quickstart
-// Some not frequently used features are omitted/commented out here
-// For a full-featured example, please refer to `uptime.config.full.ts`
-
-// Don't edit this line
-import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
-
-const pageConfig: PageConfig = {
-  // Title for your status page
-  title: "BBY's Status Page",
-  // Links shown at the header of your status page, could set `highlight` to `true`
-  links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
-  ],
-}
-
 const workerConfig: WorkerConfig = {
-  // Define all your monitors here
   monitors: [
     // ===== 测试钉钉用 =====
     {
@@ -28,7 +9,7 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
-    // ===== 重要网站（保留） =====
+    // ===== 保留 37 个重要监控（共 38 个） =====
     {
       id: 'random_url',
       name: '随机访问网址',
@@ -310,14 +291,6 @@ const workerConfig: WorkerConfig = {
       expectedCodes: [200, 302, 301],
     },
     {
-      id: 'dushou_zifen',
-      name: '读后自焚',
-      method: 'GET',
-      target: 'http://tu.66ghz.com/love',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
       id: 'tuchuang',
       name: '图床',
       method: 'GET',
@@ -341,61 +314,11 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
-    {
-      id: 'wangpan_66ghz',
-      name: 'wangpan',
-      method: 'GET',
-      target: 'http://wangpan.66ghz.com/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'beizi_ct',
-      name: '个人主页y',
-      method: 'GET',
-      target: 'https://beizi.ct.ws/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'beizi_rf',
-      name: '个人主页X',
-      method: 'GET',
-      target: 'http://beizi.rf.gd/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'love_online',
-      name: 'online',
-      method: 'GET',
-      target: 'http://love.freesite.online/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'beibinyang_blog',
-      name: 'blog (beibinyang)',
-      method: 'GET',
-      target: 'https://beibinyang.github.io/beizi',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'beibinyang_github',
-      name: 'Blog (github)',
-      method: 'GET',
-      target: 'https://beibinyang.github.io/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    // 注意：移除了以下监控以减少数量到45个
-    // bby_free_nf, bby_shop, bby_blog, bby_chatp2p, bby_phpchat, bby_danye,
-    // bbt_forum, lovei_forum, dongguang_forum, xinyuan_forum
-    // 这些可以在测试成功后逐步加回来
+    // 注意：现在总共 38 个监控（含测试的北冰洋）
+    // 删除了：dushou_zifen, wangpan_66ghz, beizi_ct, beizi_rf, love_online, 
+    // beibinyang_blog, beibinyang_github 等
   ],
   
-  // ========== 钉钉通知配置 ==========
   notification: {
     webhook: {
       url: 'https://oapi.dingtalk.com/robot/send?access_token=c1cde81ed481ada8e8c66192d74a85e2cb97ae54b263e2d144e1832b35c66d13',
@@ -413,12 +336,9 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
     },
     timeZone: 'Asia/Shanghai',
-    gracePeriod: 0,  // 改为0，立即触发通知
+    gracePeriod: 0,
   },
 }
 
-// 维护窗口配置 - 清空以便测试钉钉
+// 清空维护窗口
 const maintenances: MaintenanceConfig[] = []
-
-// Don't edit this line
-export { maintenances, pageConfig, workerConfig }
