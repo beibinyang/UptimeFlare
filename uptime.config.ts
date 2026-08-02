@@ -19,15 +19,16 @@ const pageConfig: PageConfig = {
 const workerConfig: WorkerConfig = {
   // Define all your monitors here
   monitors: [
-    // ===== 从 god-resources.html 提取的所有链接 =====
+    // ===== 测试钉钉用 =====
     {
       id: 'bby_forum',
-      name: '北冰洋',
+      name: '北冰洋（测试）',
       method: 'GET',
-      target: 'https://this-is-a-test-domain-12345.com/',  // 临时改为无效地址测试钉钉
+      target: 'https://this-is-a-test-domain-12345.com/',
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
+    // ===== 重要网站（保留） =====
     {
       id: 'random_url',
       name: '随机访问网址',
@@ -129,14 +130,6 @@ const workerConfig: WorkerConfig = {
       name: 'Blog (f)',
       method: 'GET',
       target: 'https://f.cccccccc.qzz.io/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'cloudpaste',
-      name: 'CloudPaste',
-      method: 'GET',
-      target: 'https://临时文件分享.cccccccc.qzz.io',
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
@@ -396,87 +389,10 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
       expectedCodes: [200, 302, 301],
     },
-    {
-      id: 'bby_free_nf',
-      name: '个人主页 (free.nf)',
-      method: 'GET',
-      target: 'https://bby.free.nf/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'bby_shop',
-      name: 'Shop-爱发电',
-      method: 'GET',
-      target: 'https://bby.free.nf/shop',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'bby_blog',
-      name: 'Blog (bby)',
-      method: 'GET',
-      target: 'https://bby.free.nf/Blog',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'bby_chatp2p',
-      name: 'Chat-P2P',
-      method: 'GET',
-      target: 'https://bby.free.nf/chatp2p',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'bby_phpchat',
-      name: 'PHP-Chat',
-      method: 'GET',
-      target: 'https://bby.free.nf/chat',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'bby_danye',
-      name: '单页',
-      method: 'GET',
-      target: 'https://bby.free.nf/danye/#',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'bbt_forum',
-      name: 'bbt',
-      method: 'GET',
-      target: 'https://bbt.freeflarum.com/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'lovei_forum',
-      name: 'LoveI',
-      method: 'GET',
-      target: 'https://lovei.freeflarum.com/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'dongguang_forum',
-      name: '东广',
-      method: 'GET',
-      target: 'https://dongguang.freeflarum.com/',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    {
-      id: 'xinyuan_forum',
-      name: '昕渊',
-      method: 'GET',
-      target: 'https://xinyuan.flarum.cloud',
-      timeout: 10000,
-      expectedCodes: [200, 302, 301],
-    },
-    // bby_forum 已移到最前面用于测试钉钉
+    // 注意：移除了以下监控以减少数量到45个
+    // bby_free_nf, bby_shop, bby_blog, bby_chatp2p, bby_phpchat, bby_danye,
+    // bbt_forum, lovei_forum, dongguang_forum, xinyuan_forum
+    // 这些可以在测试成功后逐步加回来
   ],
   
   // ========== 钉钉通知配置 ==========
@@ -497,7 +413,7 @@ const workerConfig: WorkerConfig = {
       timeout: 10000,
     },
     timeZone: 'Asia/Shanghai',
-    gracePeriod: 0,  // 临时改为0，立即触发通知
+    gracePeriod: 0,  // 改为0，立即触发通知
   },
 }
 
