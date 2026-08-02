@@ -342,3 +342,8 @@ const workerConfig: WorkerConfig = {
 
 // 清空维护窗口
 const maintenances: MaintenanceConfig[] = []
+
+// Don't edit this line
+export { maintenances, pageConfig, workerConfig }
+
+
