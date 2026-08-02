@@ -478,7 +478,7 @@ const workerConfig: WorkerConfig = {
     },
   ],
   
-  // ========== 钉钉通知配置（关键词：1） ==========
+  // ========== 钉钉通知配置（带链接） ==========
   notification: {
     webhook: {
       // 使用您提供的新 Access Token，关键词为 "1"
@@ -489,11 +489,11 @@ const workerConfig: WorkerConfig = {
       },
       // 使用 JSON 格式发送
       payloadType: 'json',
-      // 钉钉消息格式，内容必须包含关键词 "1"
+      // 钉钉消息格式，内容包含关键词 "1" 和监控链接
       payload: {
         msgtype: 'text',
         text: {
-          content: '1\n🔔 UptimeFlare 监控通知\n$MSG'
+          content: '1\n🔔 UptimeFlare 监控通知\n📌 监控名称: $NAME\n📊 状态: $STATUS\n🔗 监控地址: $URL\n📝 详情: $MSG\n⏰ 时间: $TIME'
         },
         // 可选：@特定人员
         // at: {
