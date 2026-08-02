@@ -506,7 +506,7 @@ const workerConfig: WorkerConfig = {
     // 使用北京时间
     timeZone: 'Asia/Shanghai',
     // 连续失败 5 分钟后才发送通知，避免频繁告警
-    gracePeriod: 5,
+    gracePeriod: 0,
   },
 }
 
